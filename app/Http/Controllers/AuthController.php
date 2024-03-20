@@ -41,6 +41,10 @@ class AuthController extends Controller
             'data.email' => 'required|email|unique:users,email',
             'data.password' => 'required|min:6',
             'data.mobileNo' => 'required|min:10',
+        ], [], [
+            'data.email' => 'email',
+            'data.name' => 'name',
+            'data.mobileNo' => 'mobileNo',
         ]);
        $user = User::create([
          'name' => $request->input('data.name'),
