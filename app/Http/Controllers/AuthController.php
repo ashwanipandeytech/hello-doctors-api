@@ -47,7 +47,7 @@ class AuthController extends Controller
          'email' => $request->input('data.email'),
          'password' => Hash::make($request->input('data.password')),
          'phone' => $request->input('data.phone'),
-         'userType' => $request->input('data.type'),
+         'userType' => $request->input('data.userType'),
        ]);
         $user->token = $user->createToken('ApiToken')->plainTextToken;
         return $this->success($user,'Registration successful',200);
