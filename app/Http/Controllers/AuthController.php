@@ -40,13 +40,13 @@ class AuthController extends Controller
             'data.name' => 'required|string',
             'data.email' => 'required|email|unique:users,email',
             'data.password' => 'required|min:6',
-            'data.phone' => 'required|min:10',
+            'data.mobileNo' => 'required|min:10',
         ]);
        $user = User::create([
          'name' => $request->input('data.name'),
          'email' => $request->input('data.email'),
          'password' => Hash::make($request->input('data.password')),
-         'phone' => $request->input('data.phone'),
+         'phone' => $request->input('data.mobileNo'),
          'userType' => $request->input('data.userType'),
        ]);
         $user->token = $user->createToken('ApiToken')->plainTextToken;
